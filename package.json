@@ -1,0 +1,31 @@
+{
+  "name": "reminder-app",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "productName": "Reminder",
+  "scripts": {
+    "start": "npm run electron:dev",
+    "build": "npm run vite:build && npm run electron:build",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
+    "vite:preview": "vite preview --port 4173",
+    "electron:dev": "concurrently \"vite\" \"electron .\"",
+    "electron:build": "electron-packager . Reminder --overwrite --asar --platform=win32 --arch=ia32 --ignore=vite.config.js --ignore=README.md --ignore=.gitignore --ignore=\"^/index.html\" --ignore=\"^/src\" --ignore=.vscode --ignore=\"^/public\" --ignore=\"^/dist\" --icon=public/assets/icon.ico --prune=true --out=dist"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "electron-is-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "firebase": "^9.13.0",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "concurrently": "^7.4.0",
+    "electron": "^21.1.1",
+    "electron-packager": "^17.0.0",
+    "pinia": "^2.0.21",
+    "vite": "^3.0.9",
+    "vite-svg-loader": "^3.6.0",
+    "vue": "^3.2.38",
+    "vue-router": "^4.1.5"
+  }
+}
